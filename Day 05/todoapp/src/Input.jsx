@@ -3,21 +3,26 @@ import React, { useState } from 'react'
 export default function Input(props) {
     // console.log(props);
     let[todo,settodo]=useState('')
-    let[error,seterror]=useState(true)
+    let[error,seterror]=useState(false);
+    
 
     const changeinput=(event)=>{
         console.log("change input fire ");
         // console.log(event.target.value);
      
    
-         
+       
+if(event.target.value.length>0){
+  settodo(event.target.value)
+  seterror(false)
 
-            if(event.target.value.length>0){
-                settodo(event.target.value)
-                seterror(false)
-            }else{
-                seterror(true)
-            }
+}else{
+  seterror(true)
+}
+     
+              
+           
+         
 
        
      
@@ -25,15 +30,19 @@ export default function Input(props) {
     const submitt=(event)=>{
         event.preventDefault();
         console.log("form submit fire ");
+
+        if(todo.length>0){
+          props.addtodo(todo)
+
+        }else{
+          seterror(true)
+        }
       
 
-     if(todo.length>0){
-        props.addtodo(todo)
 
-     }else{
-        seterror(true)
+       
 
-     }
+     
      settodo('')
            
 
@@ -61,6 +70,10 @@ export default function Input(props) {
 
 
    
+    
+
+
+   
       
 
 
@@ -68,10 +81,12 @@ export default function Input(props) {
       
       />
     </div>
-
     {
-        error && <p className='text-danger'>Enter some todo to continue </p>
+      error && <p className='text text-danger'>add some todods</p>
     }
+
+
+ 
   
    
     <div className="col-2">
