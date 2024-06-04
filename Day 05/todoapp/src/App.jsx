@@ -4,12 +4,11 @@ import List from './List'
 function App() {
   let [todos,settodos]=useState(["breakfast","lunch","dinner","brunch"])
   // console.log(todos);
-  let[edit,setedit]=useState({
-    value:'',
+  let[edittodos,setedittodos]=useState({
     index:'',
-
-
+    value:''
   })
+
 
   const addtodo=(value)=>{
     console.log(value);
@@ -17,17 +16,8 @@ function App() {
 
     // todos.push(value)
     // console.log(todos);
-
-
     settodos([...todos,value])
     // console.log(todos);
-
-    
-
-  
-
-
-    
   }
 
   const deletetodo=(value)=>{
@@ -41,31 +31,26 @@ function App() {
     let filterdata=todos.filter((todo)=>todo!==value);
     console.log(filterdata);
     settodos(filterdata)
-
-
  
   }
 
-  const edittodos=(index,value)=>{
-    console.log(index,value);
-    console.log("edit todo fire ");
-
- 
-    setedit({
+  const editTodo=(index,data)=>{
+    console.log(index,data);
+    
+    setedittodos({
       index,
-      value
+      data
     })
 
-    // console.log(todos);
   }
+
+
+
+
   return (
     <div className="App">
-      <Input addtodo={addtodo}/>
-      <List todos={todos} deletetodo={deletetodo} edittodos={edittodos}/>
-   
-
-
-      
+      <Input addtodo={addtodo} edittodos={edittodos}/>
+      <List todos={todos} deletetodo={deletetodo} editTodos={editTodo} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function Input(props) {
-    // console.log(props);
+    console.log(props);
     let[todo,settodo]=useState('')
     let[error,seterror]=useState(false);
     
@@ -38,24 +38,16 @@ if(event.target.value.length>0){
           seterror(true)
         }
       
-
-
-       
-
      
      settodo('')
-           
-
-  
-           
-        
-       
-      
-        
-
-        
-
     }
+
+    useEffect(()=>{
+      settodo(props.edittodos.data)
+
+    },[props.edittodos.data])
+
+    
 
     
   return (
@@ -68,18 +60,13 @@ if(event.target.value.length>0){
       value={todo}
       onChange={changeinput}
 
-
-   
-    
-
-
-   
-      
-
-
       
       
+      
+
       />
+
+
     </div>
     {
       error && <p className='text text-danger'>add some todods</p>
@@ -90,7 +77,20 @@ if(event.target.value.length>0){
   
    
     <div className="col-2">
-      <button type="submit" className="btn btn-primary mb-3">Add Todo</button>
+      <button type="submit" className="btn btn-primary mb-3">
+      {
+                    props.edittodos.index===''? "Add":"Update"
+                  }
+
+     
+        
+        
+        
+        
+       </button>
+    
+
+     
     </div>
     
   </form>

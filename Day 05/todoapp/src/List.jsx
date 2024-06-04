@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function List(props) {
-  // console.log(props);
+  console.log(props);
    
   return (
     <ul className="list-group">
@@ -13,9 +13,14 @@ export default function List(props) {
                 
                 {index}>
                   <div>{value}</div>
-                  <div>
-                   <div>
-                    <button className='text text-info' onClick={()=>props.edittodos(index,value)}>edit</button>
+                  <div className='d-flex flex-row '>
+                   <div className='mx-3'>
+                    <button 
+                    className="btn btn-warning"
+                    onClick={()=>props.editTodos(index,value)}
+                    
+                    
+                    >edit</button>
                    </div>
                     <button className='btn btn-danger'
                     onClick={()=>props.deletetodo(value)}
@@ -25,6 +30,8 @@ export default function List(props) {
                       
                       Delete</button>
                   </div>
+
+                 
                   
                   
                   
