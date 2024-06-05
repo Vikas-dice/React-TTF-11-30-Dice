@@ -32,7 +32,15 @@ if(event.target.value.length>0){
         console.log("form submit fire ");
 
         if(todo.length>0){
-          props.addtodo(todo)
+          if(props.edittodos.index!==''){
+            props.updatetodo(props.edittodos.index,todo)
+     
+
+          }else{
+            // settodo(props.edittodos.data)
+            props.addtodo(todo)
+          }
+          
 
         }else{
           seterror(true)

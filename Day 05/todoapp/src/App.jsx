@@ -44,12 +44,33 @@ function App() {
 
   }
 
+  const updatetodo=(index,data)=>{
+    todos.splice(index,1,data)
+
+    // console.log(index,data);
+    settodos([...todos])
+
+
+    setedittodos({
+      index:'',
+      data:''
+    })
+
+
+
+
+    
+
+  }
+
+  
+
 
 
 
   return (
     <div className="App">
-      <Input addtodo={addtodo} edittodos={edittodos}/>
+      <Input addtodo={addtodo} edittodos={edittodos} updatetodo={updatetodo}/>
       <List todos={todos} deletetodo={deletetodo} editTodos={editTodo} />
     </div>
   );
