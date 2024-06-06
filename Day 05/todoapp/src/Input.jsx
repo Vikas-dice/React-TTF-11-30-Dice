@@ -34,11 +34,13 @@ if(event.target.value.length>0){
         if(todo.length>0){
           if(props.edittodos.index!==''){
             props.updatetodo(props.edittodos.index,todo)
-     
+            // seterror(false)
 
-          }else{
-            // settodo(props.edittodos.data)
+          }
+          else{
+            settodo(props.edittodos.data)
             props.addtodo(todo)
+            // seterror(false)
           }
           
 
