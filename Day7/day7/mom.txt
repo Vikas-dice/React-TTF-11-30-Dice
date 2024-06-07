@@ -1,0 +1,25 @@
+style-react css
+1- inline
+2- app.css
+3-app.module.css
+4- global css 
+
+
+fragments
+1- react.fragments
+2-fragments
+3-<>/
+
+
+portals 
+- 
+
+
+
+refs 
+handling side effects 
+using reducer
+using context api
+
+
+class component - todo app
