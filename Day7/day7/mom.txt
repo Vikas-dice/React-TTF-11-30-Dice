@@ -23,3 +23,19 @@ using context api
 
 
 class component - todo app
+---------------------------
+
+
+props imp
+state imp
+life cycle most imp
+useffect imp
+style imp
+portals X
+fragment <>/</>
+
+
+refs 
+sideeffects
+reducer
+context api
