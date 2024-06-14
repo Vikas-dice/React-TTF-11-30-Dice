@@ -3,8 +3,9 @@ import store from '../store/store'
 
 
 export default function List() {
-    let {todos}=useContext(store);
+    let {todos,addtodo}=useContext(store);
     console.log(todos);
+    // console.log(str);
   return (
     <ul className="list-group">
 
