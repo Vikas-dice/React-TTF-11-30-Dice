@@ -70,7 +70,7 @@ export default function App() {
         //     setInterval(() => {
         //         setcounter(counter+1)
                 
-        //     }, 1000);
+        //     }, 1000); 
         // },[counter])
 
   return (

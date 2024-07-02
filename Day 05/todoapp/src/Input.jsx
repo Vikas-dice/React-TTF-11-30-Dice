@@ -4,14 +4,9 @@ export default function Input(props) {
     console.log(props);
     let[todo,settodo]=useState('')
     let[error,seterror]=useState(false);
-    
-
     const changeinput=(event)=>{
         console.log("change input fire ");
         // console.log(event.target.value);
-     
-   
-       
 if(event.target.value.length>0){
   settodo(event.target.value)
   seterror(false)
@@ -19,36 +14,25 @@ if(event.target.value.length>0){
 }else{
   seterror(true)
 }
-     
-              
-           
-         
-
-       
-     
     }
     const submitt=(event)=>{
         event.preventDefault();
         console.log("form submit fire ");
-
         if(todo.length>0){
           if(props.edittodos.index!==''){
             props.updatetodo(props.edittodos.index,todo)
-            // seterror(false)
-
+            // seterror(false
           }
           else{
             settodo(props.edittodos.data)
             props.addtodo(todo)
             // seterror(false)
           }
-          
 
         }else{
           seterror(true)
         }
       
-     
      settodo('')
     }
 
