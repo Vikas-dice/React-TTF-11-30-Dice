@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function App() {
     let[formdata,setformdata]=useState({
         firstname:"",
         lastname:""
     })
-    let[data,setdata]=useState([]);
+    let[data,setdata]=useState({});
 
 
     const inputchange=(event)=>{
@@ -38,17 +38,13 @@ export default function App() {
         console.log(response);
         let actudaldata=await response.json();
         console.log(actudaldata);
-
         getdata();
-
-
-    
-
-        
-
-    
-
+      
     }
+
+    useEffect(()=>{
+      getdata()
+    },[data.length])
 
 
     const getdata=async()=>{
@@ -56,7 +52,7 @@ export default function App() {
       
       let response=await fetch('https://formdatattf-default-rtdb.asia-southeast1.firebasedatabase.app/app.json')
 
-      let arr=[]
+      var arr=[]
 
       let data=await response.json();
       for(const key in data){
@@ -65,7 +61,12 @@ export default function App() {
         
         
       }
-      console.log(data);
+      // console.log(data);
+      console.log("array data ---------",arr);
+      // setdata(arr)
+      setdata(data)
+
+      
 
       
 
@@ -85,6 +86,8 @@ export default function App() {
     className="form-control w-50"
      id="first-name" name='firstname'
      onChange={inputchange}
+
+    
      />
 
   </div>
@@ -110,23 +113,27 @@ export default function App() {
     <tr>
       <th scope="col">#</th>
       <th scope="col">First</th>
-      <th scope="col">Last</th>
-     
+      <th scope="col">Last</th> 
     </tr>
   </thead>
   <tbody>
-
-   
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      
-    </tr>
-  
+  {
+      data.length>0 && data.map((d,i)=>{
+        return <tr>
+        <th scope="row">1</th>
+        <td>{i+1}</td>
+        <td>{d.firstname}</td>
+        <td>{d.lastname}</td>
+      </tr>
+      })
+    }
+ 
   
   </tbody>
 </table>
+{
+  console.log(data.length)
+}
     </div>
   )
 }
