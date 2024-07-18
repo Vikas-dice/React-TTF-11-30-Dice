@@ -28,6 +28,7 @@ export default function List() {
                 <div>
                     <button className='btn btn-danger ' >Edit</button>
                 </div>
+                
               
                 
                 

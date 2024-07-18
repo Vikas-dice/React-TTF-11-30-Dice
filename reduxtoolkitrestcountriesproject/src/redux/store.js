@@ -2,8 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import restCountriesreducer from './restcountries.reducer'
 
 
-export const store=configureStore({
+
+const store=configureStore({
     reducer:restCountriesreducer,
+   
+   devTools:true
  
-    devTools:true,
+    
 })
+
+export default store;

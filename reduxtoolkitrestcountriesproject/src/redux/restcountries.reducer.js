@@ -1,15 +1,15 @@
-const initialstate={
+ const initialstate={
     countries:[]
 }
 
-
-const restCountriesreducer=(state=initialstate,action)=>{
+ const restCountriesreducer=(state=initialstate,action)=>{
+    console.log("action coming from ui",action);
 
     switch(action.type){
         case "ADD_COUNTRIES":
             return{
                 ...state,
-                countries:action.payload
+                countries:[...action.payload]
             }
 
             default:
@@ -17,3 +17,6 @@ const restCountriesreducer=(state=initialstate,action)=>{
     }
 
 }
+
+
+export default restCountriesreducer;
