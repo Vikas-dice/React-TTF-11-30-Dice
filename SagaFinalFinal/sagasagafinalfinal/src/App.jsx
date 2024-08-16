@@ -7,6 +7,7 @@ import { getcountryaction, getcountrystart } from "./redux/action/country.action
 
 function App() {
 let countries=useSelector(state=>state.countries)
+let error=useSelector(state=>state.error)
 
 let loading=useSelector(state=>state.loading)
 console.log(countries);
@@ -28,9 +29,22 @@ console.log(countries);
   },[countries.length])
 
   if(loading){
-    return(<div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>)
+    return(
+    
+  <div className="d-flex justify-content-center ">
+     <div className="spinner-border text-primary " role="status"  >
+      <span className="sr-only">Loading...</span>
+    </div>
+
+  </div>
+    
+   )
+  }
+
+  if(error){
+    return(
+      <h1 className="text-danger">Some error</h1>
+    )
   }
 
   return (

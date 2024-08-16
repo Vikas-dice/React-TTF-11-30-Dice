@@ -2,6 +2,7 @@ import { GET_COUNTRY_ERROR, GET_COUNTRY_START, GET_COUNTRY_SUCCESS } from "../co
 
 const initialstate={
     countries:[],
+    error:false,
   
     
     loading:true
@@ -16,7 +17,8 @@ const countryReducer=(state=initialstate,action)=>{
                 return{
                     ...state,
                     countries:[...action.payload],
-                    loading:false
+                    loading:false,
+                    error:false
                     
                 }
 
@@ -24,7 +26,8 @@ const countryReducer=(state=initialstate,action)=>{
                 return{
                     ...state,
                     error:action.payload,
-                    loading:false
+                    loading:false,
+                    error:true
                     
                 }
 

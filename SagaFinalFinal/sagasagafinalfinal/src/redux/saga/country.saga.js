@@ -6,6 +6,8 @@ import { put } from "redux-saga/effects";
 
 function* getcountry(){
     try {
+
+        // throw new Error("some error")
    
         const data=yield getcountriesfromAPI()
         console.log("coming data",data);
